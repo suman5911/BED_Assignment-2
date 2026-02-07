@@ -39,3 +39,17 @@ export const createTicket = (
   tickets.push(newTicket);
   return newTicket;
 };
+
+/**
+ * Retrieves all tickets from the ticket list.
+*/
+export const getAllTickets = (): Ticket[] => {
+  return tickets;
+};
+
+/**
+ * Retrieves a single ticket by its ID.
+*/
+export const getTicketById = (id: number): Ticket | undefined => {
+  return tickets.find((t) => t.id === id);
+};
