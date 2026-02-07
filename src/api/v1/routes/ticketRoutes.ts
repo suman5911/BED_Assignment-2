@@ -3,7 +3,8 @@ import {
     createTicketHandler,
     getAllTicketsHandler,
     getTicketByIdHandler,
-    updateTicketHandler
+    updateTicketHandler,
+    deleteTicketHandler
 } from "../controllers/ticketController";
 
 const router = Router();
@@ -13,6 +14,7 @@ router.post("/tickets", createTicketHandler);
 router.get("/tickets", getAllTicketsHandler);
 router.get("/tickets/:id", getTicketByIdHandler);
 router.put("/tickets/:id", updateTicketHandler);
+router.delete("/tickets/:id", deleteTicketHandler);
 
 export default router;
 
