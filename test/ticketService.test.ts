@@ -1,8 +1,8 @@
-import { calculateTicketUrgency } from "../src/api/v1/services/ticketService";
+import { calculateTicketUrgency, TicketUrgency } from "../src/api/v1/services/ticketService";
 
 describe("Ticket Urgency Calculation", () => {
     it("should calculate low urgency for low priority ticket", () => {
-        const result = calculateTicketUrgency(1);
+        const result: TicketUrgency | undefined = calculateTicketUrgency(1);
 
         expect(result).toBeDefined();
         expect(result?.urgencyScore).toBe(25);
@@ -12,7 +12,7 @@ describe("Ticket Urgency Calculation", () => {
     });
 
     it("should calculate critical urgency for critical priority old ticket", () => {
-        const result = calculateTicketUrgency(6);
+        const result: TicketUrgency | undefined = calculateTicketUrgency(6);
 
         expect(result).toBeDefined();
         expect(result?.urgencyScore).toBe(80);
@@ -22,7 +22,7 @@ describe("Ticket Urgency Calculation", () => {
     });
 
     it("should return minimal urgency for resolved tickets", () => {
-        const result = calculateTicketUrgency(7);
+        const result: TicketUrgency | undefined = calculateTicketUrgency(7);
 
         expect(result).toBeDefined();
         expect(result?.urgencyScore).toBe(0);
@@ -30,7 +30,7 @@ describe("Ticket Urgency Calculation", () => {
     });
 
     it("should return undefined for non-existent ticket", () => {
-        const result = calculateTicketUrgency(99999);
+        const result: TicketUrgency | undefined = calculateTicketUrgency(99999);
 
         expect(result).toBeUndefined();
     });
